@@ -63,7 +63,7 @@ export const AnimatedCounter = ({
   }, [isVisible, end, duration]);
 
   return (
-    <span ref={ref} className="font-bold text-4xl bg-gradient-primary bg-clip-text text-transparent">
+    <span ref={ref} className="font-bold text-4xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
       {prefix}{count.toLocaleString()}{suffix}
     </span>
   );

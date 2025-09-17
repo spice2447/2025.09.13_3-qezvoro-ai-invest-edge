@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowRight, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import { footerTexts } from "@/data/texts";
 
-export function Footer() {
+export function Footer({ locale }: { locale: string }) {
   return (
     <footer className="bg-muted/50 border-t border-primary/10">
       <div className="container mx-auto px-4 py-12">
@@ -37,7 +37,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerTexts.quickLinks.links.map((link: { name: string; url: string }, index: number) => (
                 <li key={index}>
-                  <Link href={link.url} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  <Link href={`/${locale}${link.url}`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
                     {link.name}
                   </Link>
                 </li>
@@ -51,7 +51,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerTexts.legal.links.map((link: { name: string; url: string }, index: number) => (
                 <li key={index}>
-                  <Link href={link.url} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  <Link href={`/${locale}${link.url}`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
                     {link.name}
                   </Link>
                 </li>

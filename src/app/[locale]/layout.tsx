@@ -18,12 +18,12 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	
+
 	return (
 		<div>
 			<Header locale={locale} />
 			<main>{children}</main>
-			<Footer />
+			<Footer locale={locale} />
 		</div>
 	);
 }
