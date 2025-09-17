@@ -105,7 +105,7 @@ export default function Home({ t, locale } : HomeProps) {
                 <p className="text-muted-foreground">{homeTexts.quickForm.description}</p>
               </CardHeader>
               <CardContent className="p-8">
-                <form className="grid md:grid-cols-2 gap-6">
+                <form className="flex flex-col gap-2 max-w-xl mx-auto pb-10">
                   <div className="space-y-2">
                     <Label htmlFor="name">{homeTexts.quickForm.fields.name}</Label>
                     <Input 
@@ -127,7 +127,7 @@ export default function Home({ t, locale } : HomeProps) {
                     />
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2l">
                     <Label htmlFor="phone">{homeTexts.quickForm.fields.phone}</Label>
                     <Input 
                       id="phone"
@@ -138,7 +138,7 @@ export default function Home({ t, locale } : HomeProps) {
                     />
                   </div>
                   
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <Label>{homeTexts.quickForm.fields.experience}</Label>
                     <Select value={formData.experience} onValueChange={(value) => setFormData(prev => ({ ...prev, experience: value }))}>
                       <SelectTrigger className="transition-smooth focus:shadow-glow">
@@ -150,7 +150,7 @@ export default function Home({ t, locale } : HomeProps) {
                         ))}
                       </SelectContent>
                     </Select>
-                  </div>
+                  </div> */}
                   
                   <div className="md:col-span-2">
                     <Button variant="hero" size="lg" className="w-full">
@@ -208,9 +208,11 @@ export default function Home({ t, locale } : HomeProps) {
       {/* AI Technologies */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">AI Technologies</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">{homeTexts.aiTech.title}</h2>
+          <h3 className="text-3xl font-semibold text-center text-zinc-500 mb-12">{homeTexts.aiTech.subtitle}</h3>
+          <p className="text-center max-w-xl mx-auto mb-12">{homeTexts.aiTech.description}</p>
           <div className="grid md:grid-cols-3 gap-8">
-            {homeTexts.aiTech.map((tech, index) => (
+            {homeTexts.aiTech.items.map((tech, index) => (
               <Card key={index} className="glass border-primary/20 hover:shadow-elegant transition-smooth animate-float" style={{ animationDelay: `${index * 2}s` }}>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">

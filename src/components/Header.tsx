@@ -15,7 +15,7 @@ export const Header = ({ locale }: { locale: string }) => {
     { label: homeTexts?.header?.menu?.about, path: "/about" },
     { label: homeTexts?.header?.menu?.reviews, path: "/reviews" },
     { label: homeTexts?.header?.menu?.contact, path: "/contact" },
-    { label: homeTexts?.header?.menu?.privacy, path: "/privacy" },
+    // { label: homeTexts?.header?.menu?.privacy, path: "/privacy" },
   ];
 
   return (

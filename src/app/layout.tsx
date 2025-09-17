@@ -4,13 +4,22 @@ import "./globals.css";
 import Providers from "./providers";
 import "./globals.css";
 
+export const metadata: Metadata = {
+  title: "Qezvoro Invest — Advanced AI Investing Platform",
+  description: "AI-powered investment platform",
+};
+
+
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
+      
       <body>
         <Providers>{children}</Providers>
       </body>
