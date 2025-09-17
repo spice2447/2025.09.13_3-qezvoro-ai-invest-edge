@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,11 +19,11 @@ interface TestimonialCarouselProps {
 export const TestimonialCarousel = ({ testimonials }: TestimonialCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setCurrentIndex((prevIndex) => 
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [testimonials.length]);
 
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) => 
@@ -34,7 +34,7 @@ export const TestimonialCarousel = ({ testimonials }: TestimonialCarouselProps) 
   useEffect(() => {
     const interval = setInterval(nextTestimonial, 5000);
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [nextTestimonial]);
 
   return (
     <div className="relative">

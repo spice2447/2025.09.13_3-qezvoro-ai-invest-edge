@@ -32,7 +32,7 @@ export const PricingCard = ({ plan }: PricingCardProps) => {
       <CardHeader className="text-center pb-4">
         <h3 className="text-2xl font-bold">{plan.name}</h3>
         <div className="flex items-baseline justify-center">
-          <span className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <span className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
             {plan.price}
           </span>
           <span className="text-muted-foreground ml-1">/{plan.period}</span>

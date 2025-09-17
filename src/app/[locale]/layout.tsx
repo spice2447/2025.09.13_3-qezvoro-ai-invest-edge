@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
+import React from "react";
 import Providers from "../providers";
 import { Header } from "@/components/Header";
 import { locales } from "@/i18n/locales";
+import { Footer } from "@/components/Footer";
 
-// TODO: добавить Footer после переноса
-export default function LocaleLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <Header />
-      <main>{children}</main>
-    </div>
-  );
+interface LocaleLayoutProps {
+	children: React.ReactNode;
+	params: Promise<{ locale: string }>
 }
 
-export async function generateStaticParams() {
-  return locales.map((locale) => ({
-    locale: locale.code,
-  }));
+export default async function LocaleLayout({
+	children,
+	params,
+}: {
+	children: React.ReactNode;
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	
+	return (
+		<div>
+			<Header locale={locale} />
+			<main>{children}</main>
+			<Footer />
+		</div>
+	);
 }

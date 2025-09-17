@@ -10,7 +10,7 @@ type WidenLeaf<T> =
   T;
 
 export type Widen<T> =
-  T extends Function ? T :
+  T extends (...args: unknown[]) => unknown ? T :
   T extends Array<infer U> ? Array<Widen<U>> :
   T extends object ? { [K in keyof T]: Widen<T[K]> } :
   WidenLeaf<T>;
@@ -19,7 +19,7 @@ export type Messages = Widen<typeof ru>;
 
 /** Рекурсивный частичный тип для словарей */
 export type DeepPartial<T> =
-  T extends Function ? T :
+  T extends (...args: unknown[]) => unknown ? T :
   T extends Array<infer U> ? Array<DeepPartial<U>> :
   T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } :
   T;

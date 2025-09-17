@@ -29,7 +29,7 @@ export function Pricing() {
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center">Pricing Plans</h2>
+        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Pricing Plans</h2>
         <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <PricingCard key={index} plan={plan} />

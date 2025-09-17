@@ -19,7 +19,7 @@ export function ReviewsPageContent() {
         <div className="container mx-auto px-4 text-center relative">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 {reviewsTexts.hero.headline}
               </span>
             </h1>
@@ -33,7 +33,7 @@ export function ReviewsPageContent() {
                 <Card key={index} className="glass border-primary/20 hover:shadow-elegant transition-smooth">
                   <CardContent className="p-4 text-center">
                     <div className="text-2xl mb-2">{indicator.icon}</div>
-                    <div className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                    <div className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                       {indicator.value}
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">{indicator.label}</p>

@@ -1,4 +1,3 @@
-'use client';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Shield, FileText, Users, Lock, Globe, Mail } from "lucide-react";
@@ -18,7 +17,7 @@ export default function PrivacyPage() {
         <div className="container mx-auto px-4 text-center relative">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 {privacyTexts.title}
               </span>
             </h1>

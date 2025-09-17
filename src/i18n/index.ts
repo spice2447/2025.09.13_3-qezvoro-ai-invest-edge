@@ -7,21 +7,23 @@ const base: Messages = ruRaw as Messages;
 const isObj = (v: unknown): v is Record<string, unknown> =>
   v !== null && typeof v === "object" && !Array.isArray(v);
 
-function mergeDeep<TTarget extends Record<string, any>>(
+function mergeDeep<TTarget extends Record<string, unknown>>(
   target: TTarget,
   source?: DeepPartial<TTarget>
 ): TTarget {
-  const out: any = Array.isArray(target) ? [...target] : { ...target };
+  const out = (Array.isArray(target) ? [...target] : { ...target }) as TTarget;
   if (!source) return out;
 
   for (const k in source) {
-    const sv = (source as any)[k];
+    const sv = (source as Record<string, unknown>)[k];
     if (sv === undefined) continue;
 
-    const tv = (target as any)[k];
-    if (isObj(tv) && isObj(sv)) out[k] = mergeDeep(tv, sv as any);
-    else if (Array.isArray(tv) && Array.isArray(sv)) out[k] = sv;     // массивы заменяем целиком
-    else out[k] = sv;
+    const tv = (target as Record<string, unknown>)[k];
+    if (isObj(tv) && isObj(sv)) {
+      (out as Record<string, unknown>)[k] = mergeDeep(tv, sv as DeepPartial<typeof tv>);
+    } else {
+      (out as Record<string, unknown>)[k] = sv;
+    }
   }
   return out;
 }

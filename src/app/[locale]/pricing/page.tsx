@@ -1,5 +1,3 @@
-'use client';
-
 import { PricingCard } from "@/components/PricingCard";
 import { localeCodes } from "@/i18n/locales";
 

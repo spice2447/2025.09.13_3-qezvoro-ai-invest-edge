@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 text-center relative">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 {aboutTexts.hero.headline}
               </span>
             </h1>
